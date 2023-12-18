@@ -6,4 +6,4 @@ Integrantes:
 
 
 Observaciones:
-Ejecutar el archivo MVP_3.py junto con Cache_2
+Ejecutar el archivo MVP_3.py junto con Cache_2.py
