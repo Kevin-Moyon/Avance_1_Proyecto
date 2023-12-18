@@ -1,2 +1,5 @@
 # Avance_1_Proyecto
-MVP proyecto,
+MVP proyecto
+Integrantes:
+-Moyon Kevin
+-Narvaez Milisen
