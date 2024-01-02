@@ -1,4 +1,4 @@
-# Avance_1_Proyecto
+# Proyecto_Grupal_Arquitectura
 MVP proyecto
 Integrantes:
 -Moyon Kevin
