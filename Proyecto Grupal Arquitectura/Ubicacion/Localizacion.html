@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Localizacion Zona Segura</title>
+  <link rel="icon" href="https://www.pnguniverse.com/wp-content/uploads/2020/10/Icono-google-maps.png" type="image/png">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map { height: 400px; }
+  </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  function initMap() {
+    var map = L.map('map').setView([40.7128, -74.0060], 15); // Latitud y longitud del centro de la circunferencia
+
+    // Agrega el mapa de OpenStreetMap como capa base
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Coordenadas del centro de la circunferencia
+    var centroLatitud = -0.19818;
+    var centroLongitud = -78.50378;
+
+    // Agrega un marcador en el centro de la circunferencia
+    L.marker([centroLatitud, centroLongitud]).addTo(map)
+      .bindPopup("Centro de la circunferencia - Facultad de Ingeniería y Ciencias Aplicadas").openPopup();
+
+    // Agrega una circunferencia con radio de 200 metros
+    var circunferencia = L.circle([centroLatitud, centroLongitud], {
+      color: 'red',
+      fillColor: '#f03',
+      fillOpacity: 0.5,
+      radius: 200
+    }).addTo(map);
+
+    // Verifica si el navegador soporta geolocalización
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var latitudUsuario = position.coords.latitude;
+        var longitudUsuario = position.coords.longitude;
+
+        // Agrega un marcador en la ubicación actual del usuario
+        L.marker([latitudUsuario, longitudUsuario]).addTo(map)
+          .bindPopup("Tu ubicación actual").openPopup();
+
+        // Verifica si la ubicación del usuario está dentro del radio de la circunferencia
+        var distancia = map.distance([latitudUsuario, longitudUsuario], circunferencia.getLatLng());
+        if (distancia <= circunferencia.getRadius()) {
+          alert("¡Estás dentro de la zona fijada!.");
+        } else {
+          alert("¡Estás fuera de la zona fijada!");
+        }
+      }, function(error) {
+        console.error("Error al obtener la ubicación:", error);
+      });
+    } else {
+      console.error("El navegador no soporta la geolocalización.");
+    }
+  }
+
+  window.onload = initMap;
+</script>
+
+</body>
+</html>
