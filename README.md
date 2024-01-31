@@ -6,4 +6,4 @@ Integrantes:
 
 
 Observaciones:
-Ejecutar el archivo MVP_3.py junto con Cache_2.py
+Proyecto con incrementacion de la localizacion, mediante un archivo html, donde notifica si estas dentro o fuera de la zona marcada
