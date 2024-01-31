@@ -1,4 +1,4 @@
-# Avance_1_Proyecto
+# Avance__Proyecto
 MVP proyecto
 Integrantes:
 -Moyon Kevin
@@ -6,4 +6,4 @@ Integrantes:
 
 
 Observaciones:
-Ejecutar el archivo MVP_3.py junto con Cache_2.py
+Codigo completado con todo lo propuesto, en un inicio en clase
