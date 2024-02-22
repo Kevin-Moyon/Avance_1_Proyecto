@@ -6,4 +6,4 @@ Integrantes:
 
 
 Observaciones:
-Ejecutar el archivo MVP_3.py junto con Cache_2.py
+En el proyecto se ha incrementado, la segmentacion de los tipos de cache L1, L2, L3, obtenidos de la computadora, y se pagina, loe rendimientos de la computadora.
